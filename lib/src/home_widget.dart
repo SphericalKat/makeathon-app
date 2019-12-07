@@ -17,23 +17,41 @@ class ItemSelector with ChangeNotifier {
 
 class HomeWidget extends StatelessWidget {
   final titles = ["Agenda", "Info"];
+  final List<Widget> body = [
+    Center(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(top: 16),
+          child: AgendaWidget(),
+        )
+      ],
+    )),
+    Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Some fake info!"),
+          Text("The makeathon team says bye!",),
+        ],
+      ),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
     final itemSelector = Provider.of<ItemSelector>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+//        backgroundColor: Colors.transparent,
         title: Text(
           titles[itemSelector.selectedItem],
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold
-          ),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
 //        centerTitle: true,
       ),
-      body: _getBody(itemSelector.selectedItem, context),
+      body: body[itemSelector.selectedItem],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: itemSelector.selectedItem,
         items: [
@@ -47,34 +65,5 @@ class HomeWidget extends StatelessWidget {
         onTap: (index) => itemSelector.setSelectedItem(index),
       ),
     );
-  }
-
-  Widget _getBody(int index, BuildContext context) {
-    List<Widget> body = [
-      Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 16),
-            child: AgendaWidget(),
-          )
-        ],
-      )),
-      Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Some fake info!"),
-            Text(
-              "The makeathon team says bye!",
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-    ];
-
-    return body[index];
   }
 }
