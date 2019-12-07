@@ -49,7 +49,7 @@ class HomeWidget extends StatelessWidget {
     final itemSelector = Provider.of<ItemSelector>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Color(0xffbb68fc),
         title: Text(
           titles[itemSelector.selectedItem],
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -58,7 +58,7 @@ class HomeWidget extends StatelessWidget {
       ),
       body: body[itemSelector.selectedItem],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.deepPurpleAccent,
+        selectedItemColor: Color(0xff03DAC6),
         type: BottomNavigationBarType.shifting,
         currentIndex: itemSelector.selectedItem,
         items: [
