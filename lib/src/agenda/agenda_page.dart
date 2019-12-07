@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:makeathon/src/agenda/agenda_item.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class AgendaWidget extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class AgendaWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.only(left: 12, right: 12, top: 16),
               child: Column(
                 children: [
                   Text("25",
@@ -29,33 +30,33 @@ class AgendaWidget extends StatelessWidget {
                 child: Column(children: [
                   AgendaItem(
                     "Check-In",
-                    "5:30 PM - 6:00 PM",
-                    Icon(Icons.star),
+                    "5:30 PM",
+                    Icon(MdiIcons.star),
                   ),
                   AgendaItem(
                     "Inaugral Ceremony",
-                    "6:00 PM - 6:30 PM",
-                    Icon(Icons.star),
+                    "6:00 PM",
+                    Icon(Icons.mic),
                   ),
                   AgendaItem(
                     "Problem Statement Description",
-                    "6:30 PM - 7:30 PM",
+                    "6:30 PM",
                     Icon(Icons.mic),
                   ),
                   AgendaItem(
                     "Component Form Submission",
-                    "7:30 PM- 8:00 PM",
+                    "7:30 PM",
                     Icon(Icons.format_list_bulleted),
                   ),
                   AgendaItem(
                     "Making begins!",
-                    "8:00 PM - 8:30 PM",
-                    Icon(Icons.code),
+                    "8:00 PM",
+                    Icon(MdiIcons.xml),
                   ),
                   AgendaItem(
                     "Dinner",
                     "8:30 PM",
-                    Icon(Icons.fastfood),
+                    Icon(Icons.restaurant_menu),
                   ),
                 ]),
               ),
@@ -67,7 +68,7 @@ class AgendaWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.only(left: 12, right: 12, top: 16),
               child: Column(
                 children: [
                   Text("26",
@@ -84,34 +85,34 @@ class AgendaWidget extends StatelessWidget {
                 padding: EdgeInsets.only(right: 12),
                 child: Column(children: [
                   AgendaItem(
-                    "Check-In",
-                    "5:30 PM - 6:00 PM",
-                    Icon(Icons.star),
+                    "Breakfast",
+                    "8:00 AM",
+                    Icon(Icons.free_breakfast),
                   ),
                   AgendaItem(
-                    "Inaugral Ceremony",
-                    "6:00 PM - 6:30 PM",
-                    Icon(Icons.star),
+                    "Milestone Check 1",
+                    "11:30 AM",
+                    Icon(Icons.filter_1),
                   ),
                   AgendaItem(
-                    "Problem Statement Description",
-                    "6:30 PM - 7:30 PM",
-                    Icon(Icons.mic),
+                    "Lunch",
+                    "1:00 PM",
+                    Icon(Icons.fastfood),
                   ),
                   AgendaItem(
-                    "Component Form Submission",
-                    "7:30 PM- 8:00 PM",
-                    Icon(Icons.format_list_bulleted),
-                  ),
-                  AgendaItem(
-                    "Making begins!",
-                    "8:00 PM - 8:30 PM",
-                    Icon(Icons.code),
+                    "Snacks",
+                    "6:00",
+                    Icon(Icons.free_breakfast),
                   ),
                   AgendaItem(
                     "Dinner",
+                    "8:00 PM",
+                    Icon(Icons.restaurant_menu),
+                  ),
+                  AgendaItem(
+                    "Milestone Check 2",
                     "8:30 PM",
-                    Icon(Icons.fastfood),
+                    Icon(Icons.filter_2),
                   ),
                 ]),
               ),
@@ -123,7 +124,7 @@ class AgendaWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.only(left: 12, right: 12, top: 16),
               child: Column(
                 children: [
                   Text("27",
@@ -140,34 +141,34 @@ class AgendaWidget extends StatelessWidget {
                 padding: EdgeInsets.only(right: 12),
                 child: Column(children: [
                   AgendaItem(
-                    "Check-In",
-                    "5:30 PM - 6:00 PM",
-                    Icon(Icons.star),
+                    "Making Ends/Breakfast",
+                    "8:00 AM",
+                    Icon(Icons.free_breakfast),
                   ),
                   AgendaItem(
-                    "Inaugral Ceremony",
-                    "6:00 PM - 6:30 PM",
-                    Icon(Icons.star),
+                    "Qualifier round",
+                    "9:00 AM",
+                    Icon(MdiIcons.scaleBalance),
                   ),
                   AgendaItem(
-                    "Problem Statement Description",
-                    "6:30 PM - 7:30 PM",
-                    Icon(Icons.mic),
+                    "Lunch",
+                    "1:00 PM",
+                    Icon(Icons.fastfood),
                   ),
                   AgendaItem(
-                    "Component Form Submission",
-                    "7:30 PM- 8:00 PM",
-                    Icon(Icons.format_list_bulleted),
+                    "Final Presentation",
+                    "2:00 PM",
+                    Icon(MdiIcons.presentationPlay),
                   ),
                   AgendaItem(
-                    "Making begins!",
-                    "8:00 PM - 8:30 PM",
-                    Icon(Icons.code),
+                    "Prize Distribution & Valedictory",
+                    "4:00 PM",
+                    Icon(MdiIcons.trophyVariant),
                   ),
                   AgendaItem(
                     "Dinner",
                     "8:30 PM",
-                    Icon(Icons.fastfood),
+                    Icon(Icons.restaurant_menu),
                   ),
                 ]),
               ),
