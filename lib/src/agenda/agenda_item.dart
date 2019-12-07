@@ -10,35 +10,38 @@ class AgendaItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 5),
       child: Card(
-          child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 8, right: 16),
-                  child: icon,
-                ),
-                Text(title,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-              ],
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 8, right: 16),
-                  child: Icon(
-                    Icons.accessibility,
-                    color: Colors.transparent,
+        elevation: 0,
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 8, right: 16),
+                    child: icon,
                   ),
-                ),
-                Text(timing)
-              ],
-            )
-          ],
+                  Text(title,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+                ],
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 8, right: 16),
+                    child: Icon(
+                      Icons.accessibility,
+                      color: Colors.transparent,
+                    ),
+                  ),
+                  Text(timing)
+                ],
+              )
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 

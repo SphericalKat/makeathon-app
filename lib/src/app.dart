@@ -9,10 +9,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
+        accentColor: Colors.deepPurpleAccent,
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark
+        brightness: Brightness.dark,
+        accentColor: Colors.deepPurpleAccent,
       ),
       home: ChangeNotifierProvider<ItemSelector>(
         create: (_) => ItemSelector(0),

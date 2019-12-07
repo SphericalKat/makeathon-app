@@ -16,24 +16,29 @@ class ItemSelector with ChangeNotifier {
 }
 
 class HomeWidget extends StatelessWidget {
-  final titles = ["Agenda", "Info"];
+  final titles = ["Agenda", "Problem statements", "Info"];
   final List<Widget> body = [
     Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: 16),
-          child: AgendaWidget(),
-        )
-      ],
-    )),
+        child: AgendaWidget()),
     Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text("Some fake info!"),
-          Text("The makeathon team says bye!",),
+          Text(
+            "The makeathon team says bye!",
+          ),
+        ],
+      ),
+    ),
+    Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Some fake info!"),
+          Text(
+            "The makeathon team says bye!",
+          ),
         ],
       ),
     ),
@@ -44,7 +49,7 @@ class HomeWidget extends StatelessWidget {
     final itemSelector = Provider.of<ItemSelector>(context);
     return Scaffold(
       appBar: AppBar(
-//        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.deepPurple,
         title: Text(
           titles[itemSelector.selectedItem],
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -53,14 +58,23 @@ class HomeWidget extends StatelessWidget {
       ),
       body: body[itemSelector.selectedItem],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.deepPurpleAccent,
+        type: BottomNavigationBarType.shifting,
         currentIndex: itemSelector.selectedItem,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
+            icon: Icon(Icons.event),
             title: Text("Agenda"),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.info_outline), title: Text("Info"))
+              icon: Icon(Icons.lightbulb_outline),
+              title: Text("Problem Statements")
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info_outline),
+            title: Text("Info"),
+          ),
+
         ],
         onTap: (index) => itemSelector.setSelectedItem(index),
       ),
