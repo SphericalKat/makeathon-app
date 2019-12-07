@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:makeathon/src/agenda/agenda_item.dart';
 import 'package:makeathon/src/agenda/agenda_page.dart';
 import 'package:provider/provider.dart';
 
