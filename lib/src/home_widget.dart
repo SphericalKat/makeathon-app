@@ -28,7 +28,7 @@ class HomeWidget extends StatelessWidget {
     Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Text("Some fake info!"),
           Text(
             "The makeathon team says bye!",
@@ -83,7 +83,7 @@ class HomeWidget extends StatelessWidget {
           titles[itemSelector.selectedItem],
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
-//        centerTitle: true,
+        centerTitle: true,
       ),
       body: body[itemSelector.selectedItem],
       bottomNavigationBar: BottomNavigationBar(
@@ -95,27 +95,22 @@ class HomeWidget extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.event),
             title: Text("Agenda"),
-//            backgroundColor: Color(0xff2d3f50),
           ),
           BottomNavigationBarItem(
             icon: Icon(MdiIcons.lightbulbOn),
             title: Text("Themes"),
-//            backgroundColor: Color(0xff2d3f50),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.attach_money),
             title: Text("Sponsors"),
-//            backgroundColor: Color(0xff2d3f50),
           ),
           BottomNavigationBarItem(
             icon: Icon(MdiIcons.accountSupervisor),
             title: Text("Organisers"),
-//            backgroundColor: Color(0xff2d3f50),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info_outline),
             title: Text("Info"),
-//            backgroundColor: Color(0xff2d3f50),
           ),
         ],
         onTap: (index) => itemSelector.setSelectedItem(index),
