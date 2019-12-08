@@ -11,10 +11,12 @@ class App extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         accentColor: Colors.deepPurpleAccent,
+        fontFamily: "Circular-Std",
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         accentColor: Colors.deepPurpleAccent,
+        fontFamily: "Circular-Std",
       ),
       home: ChangeNotifierProvider<ItemSelector>(
         create: (_) => ItemSelector(0),

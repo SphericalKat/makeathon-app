@@ -37,6 +37,16 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  fonts:
+    - family: Circular-Std
+      fonts:
+        - asset: fonts/CircularStd-Black.ttf
+        - asset: fonts/CircularStd-Bold.ttf
+          weight: 700
+        - asset: fonts/CircularStd-Medium.ttf
+          weight: 500
+        - asset: fonts/CircularStd-Book.ttf
+          weight: 300
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

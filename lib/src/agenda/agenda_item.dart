@@ -22,9 +22,11 @@ class AgendaItem extends StatelessWidget {
                     padding: EdgeInsets.only(left: 8, right: 16),
                     child: icon,
                   ),
-                  Text(title,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+                  Flexible(
+                    child: Text(title,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                  )
                 ],
               ),
               Row(
