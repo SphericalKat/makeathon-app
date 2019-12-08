@@ -10,7 +10,8 @@ class AgendaItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 5),
       child: Card(
-        elevation: 0,
+        color: Color(0xff262845),
+//        elevation: 0,
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(

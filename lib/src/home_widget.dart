@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:makeathon/src/agenda/agenda_page.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
 class ItemSelector with ChangeNotifier {
@@ -15,10 +16,37 @@ class ItemSelector with ChangeNotifier {
 }
 
 class HomeWidget extends StatelessWidget {
-  final titles = ["Agenda", "Problem statements", "Info"];
+  final titles = [
+    "Agenda",
+    "Problem statements",
+    "Sponsors",
+    "Organising Committee",
+    "About"
+  ];
   final List<Widget> body = [
+    Center(child: AgendaWidget()),
     Center(
-        child: AgendaWidget()),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Some fake info!"),
+          Text(
+            "The makeathon team says bye!",
+          ),
+        ],
+      ),
+    ),
+    Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Some fake info!"),
+          Text(
+            "The makeathon team says bye!",
+          ),
+        ],
+      ),
+    ),
     Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -47,8 +75,10 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final itemSelector = Provider.of<ItemSelector>(context);
     return Scaffold(
+      backgroundColor: Color(0xff1d1f3e),
       appBar: AppBar(
-        backgroundColor: Color(0xffbb68fc),
+        elevation: 0,
+        backgroundColor: Color(0xff1d1f3e),
         title: Text(
           titles[itemSelector.selectedItem],
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -57,23 +87,36 @@ class HomeWidget extends StatelessWidget {
       ),
       body: body[itemSelector.selectedItem],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Color(0xff03DAC6),
-        type: BottomNavigationBarType.shifting,
+        selectedItemColor: Color(0xff69f0ae),
+        backgroundColor: Color(0xff262845),
+        type: BottomNavigationBarType.fixed,
         currentIndex: itemSelector.selectedItem,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.event),
             title: Text("Agenda"),
+//            backgroundColor: Color(0xff2d3f50),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.lightbulb_outline),
-              title: Text("Problem Statements")
+            icon: Icon(MdiIcons.lightbulbOn),
+            title: Text("Themes"),
+//            backgroundColor: Color(0xff2d3f50),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.attach_money),
+            title: Text("Sponsors"),
+//            backgroundColor: Color(0xff2d3f50),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(MdiIcons.accountSupervisor),
+            title: Text("Organisers"),
+//            backgroundColor: Color(0xff2d3f50),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info_outline),
             title: Text("Info"),
+//            backgroundColor: Color(0xff2d3f50),
           ),
-
         ],
         onTap: (index) => itemSelector.setSelectedItem(index),
       ),
