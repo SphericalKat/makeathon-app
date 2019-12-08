@@ -25,7 +25,7 @@ class HomeWidget extends StatelessWidget {
     "Info"
   ];
   final List<Widget> body = [
-    Center(child: AgendaWidget()),
+    AgendaWidget(),
     Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +86,8 @@ class HomeWidget extends StatelessWidget {
         ),
         ListView(
           children: [
-            AboutItem("Where can you find us?", "f you have any questions regarding the Make-A-Thon that were not answered in the FAQ above, please get in touch with us through email - makeinvit@gmail.com or contact Aman Bagaria: 09097513482. We will reply as soon as possible.")
+            AboutItem("Where can you find us?",
+                "If you have any questions regarding the Make-A-Thon that were not answered in the FAQ above, please get in touch with us through email - makeinvit@gmail.com or contact Aman Bagaria: 09097513482. We will reply as soon as possible.")
           ],
         ),
         ListView(
@@ -97,12 +98,18 @@ class HomeWidget extends StatelessWidget {
                 "All undergraduate and graduate students irrespective of branch and year, who are registered under affiliated institutes across India. Please note, however, that travel reimbursements will not be provided."),
             AboutItem("What should I bring?",
                 "We recommend that you bring a laptop (and yourself!) to hack. We will provide everything else that is necessary for the Make-A-Thon so do not worry about bringing anything else. However, if you have a certain set of tools that you like to use, please feel free to bring them as well.\nKindly note that printed boards/circuits, readymade kits/devices are not allowed. "),
-            AboutItem("How does judging work?", "Judges from industries and high profile academicians will evaluate the projects and pitches based on their relations to design (how awesome it is), engineering (does it work), and entrepreneurship (how was it pitched and what is its real-world potential). Do not worry! This event is meant to be fun, and all of the judges understand that everything was built over the limited span of time."),
-            AboutItem("Can I leave in the middle?", "Leaving the project in the middle without prior permission will attract a penalty."),
-            AboutItem("What is the pitch competition?", "After the hacking and building period, we will host a public pitch competition where every team can present their projects. Pitches should be 5-7 minutes long."),
-            AboutItem("What do I build?", "You can build anything you and your team would like! We will provide a prompt, components to help accelerate development and mentorship from academicians and industrialists, but everything else is totally up to you and your team."),
-            AboutItem("How much does this cost?", "This event is completely free for VITians and at a registration fee of ₹500* for Non-VITians. It includes food and any necessary materials you will need to make with!"),
-            AboutItem("How do I benefit?", "Exposure, internship opportunities, interaction with industry experts and vendors and prize money worth 1.5 Lacs.\nTop 10 teams will be given Startup grant of 1 Lakh rupees by VIT-TBI.\nSpecial prizes in healthcare track.")
+            AboutItem("How does judging work?",
+                "Judges from industries and high profile academicians will evaluate the projects and pitches based on their relations to design (how awesome it is), engineering (does it work), and entrepreneurship (how was it pitched and what is its real-world potential). Do not worry! This event is meant to be fun, and all of the judges understand that everything was built over the limited span of time."),
+            AboutItem("Can I leave in the middle?",
+                "Leaving the project in the middle without prior permission will attract a penalty."),
+            AboutItem("What is the pitch competition?",
+                "After the hacking and building period, we will host a public pitch competition where every team can present their projects. Pitches should be 5-7 minutes long."),
+            AboutItem("What do I build?",
+                "You can build anything you and your team would like! We will provide a prompt, components to help accelerate development and mentorship from academicians and industrialists, but everything else is totally up to you and your team."),
+            AboutItem("How much does this cost?",
+                "This event is completely free for VITians and at a registration fee of ₹500* for Non-VITians. It includes food and any necessary materials you will need to make with!"),
+            AboutItem("How do I benefit?",
+                "Exposure, internship opportunities, interaction with industry experts and vendors and prize money worth 1.5 Lacs.\nTop 10 teams will be given Startup grant of 1 Lakh rupees by VIT-TBI.\nSpecial prizes in healthcare track.")
           ],
         ),
       ],
@@ -120,7 +127,7 @@ class HomeWidget extends StatelessWidget {
           bottom: itemSelector.selectedItem != 4
               ? null
               : TabBar(
-                  tabs: <Widget>[
+                  tabs: [
                     Tab(
                       text: "About",
                     ),
@@ -143,7 +150,6 @@ class HomeWidget extends StatelessWidget {
         body: body[itemSelector.selectedItem],
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Color(0xff69f0ae),
-//          selectedItemColor: Color(0xff69f0ae),
           backgroundColor: Color(0xff262845),
           type: BottomNavigationBarType.fixed,
           currentIndex: itemSelector.selectedItem,
