@@ -15,7 +15,7 @@ class AgendaWidget extends StatelessWidget {
               padding: EdgeInsets.only(left: 12, right: 12, top: 16),
               child: Column(
                 children: [
-                  Text("25",
+                  Text("27",
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   Text("MAR",
@@ -71,7 +71,7 @@ class AgendaWidget extends StatelessWidget {
               padding: EdgeInsets.only(left: 12, right: 12, top: 16),
               child: Column(
                 children: [
-                  Text("26",
+                  Text("28",
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   Text("MAR",
@@ -127,7 +127,7 @@ class AgendaWidget extends StatelessWidget {
               padding: EdgeInsets.only(left: 12, right: 12, top: 16),
               child: Column(
                 children: [
-                  Text("27",
+                  Text("29",
                       style:
                       TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   Text("MAR",
