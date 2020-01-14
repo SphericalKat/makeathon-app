@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:makeathon/src/agenda/agenda_page.dart';
 import 'package:makeathon/src/info/about_widget.dart';
 import 'package:makeathon/src/organisers/organiser_item.dart';
+import 'package:makeathon/src/organisers/organiser_page.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -49,20 +50,7 @@ class HomeWidget extends StatelessWidget {
         ],
       ),
     ),
-    Center(
-        child: ListView(
-          children: <Widget>[
-            OrganiserItem(
-                Image.asset("assets/images/logomake.png"), "Someone", "Something"),
-            OrganiserItem(
-                Image.asset("assets/images/logomake.png"), "Someone", "Something"),
-            OrganiserItem(
-                Image.asset("assets/images/logomake.png"), "Someone", "Something"),
-            OrganiserItem(
-                Image.asset("assets/images/logomake.png"), "Someone", "Something"),
-          ],
-        )
-    ),
+    OrganizerPage(),
     AboutWidget(),
   ];
 
