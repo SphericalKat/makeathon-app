@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:makeathon/src/providers/fab_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'home_widget.dart';
@@ -34,6 +35,9 @@ class App extends StatelessWidget {
         ChangeNotifierProvider<BottomNavProvider>(
           create: (_) => BottomNavProvider(0),
         ),
+        ChangeNotifierProvider<FabProvider>(
+          create: (_) => FabProvider(true),
+        )
       ],
     );
   }

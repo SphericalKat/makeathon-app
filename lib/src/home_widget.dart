@@ -1,12 +1,15 @@
+import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:makeathon/src/agenda/agenda_page.dart';
 import 'package:makeathon/src/info/about_widget.dart';
 import 'package:makeathon/src/organisers/organiser_page.dart';
+import 'package:makeathon/src/providers/fab_provider.dart';
 import 'package:makeathon/src/tracks/track_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'providers/bottomnav_provider.dart';
 
@@ -18,13 +21,14 @@ class HomeWidget extends StatelessWidget {
     "Organising Committee",
     "Info"
   ];
+
   final List<Widget> body = [
     AgendaWidget(),
     TrackWidget(),
     Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Text("Some fake info!"),
           Text(
             "The makeathon team says bye!",
@@ -39,13 +43,25 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itemSelector = Provider.of<BottomNavProvider>(context, listen: true);
+    final fabVisibility = Provider.of<FabProvider>(context, listen: true);
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-          floatingActionButton: FloatingActionButton.extended(
-            onPressed: null,
-            icon: Icon(MdiIcons.cashRegister), label: Text("Register"),
-          ),
+          floatingActionButton: fabVisibility.shouldShow
+              ? FloatingActionButton.extended(
+                  onPressed: () async {
+                    const url = "https://google.com";
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw "Could not launch $url";
+                    }
+                  },
+                  icon: Icon(MdiIcons.cashRegister),
+                  label: Text("Register"),
+                )
+              : null,
 //          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
           backgroundColor: Color(0xff1d1f3e),
           appBar: AppBar(
@@ -65,7 +81,6 @@ class HomeWidget extends StatelessWidget {
             onTap: (index) => itemSelector.setSelectedItem(index),
             borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
             elevation: 8,
-//            fabLocation: null,
             hasNotch: false,
             hasInk: true,
             inkColor: Colors.black12,
@@ -87,7 +102,7 @@ class HomeWidget extends StatelessWidget {
                   icon: Icon(MdiIcons.accountSupervisor),
                   title: Text("Organisers")),
               BubbleBottomBarItem(
-                  backgroundColor: Colors.purpleAccent,
+                  backgroundColor: Colors.deepPurpleAccent,
                   icon: Icon(Icons.info_outline),
                   title: Text("Info"))
             ],
