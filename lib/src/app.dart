@@ -3,25 +3,38 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'home_widget.dart';
+import 'providers/bottomnav_provider.dart';
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        accentColor: Colors.deepPurpleAccent,
-        fontFamily: "Circular-Std",
+    return MultiProvider(
+      child: MaterialApp(
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          accentColor: Colors.deepPurpleAccent,
+          primaryColor: Color(0xff1d1f3e),
+          primaryColorDark: Color(0xff1d1f3e),
+          backgroundColor: Color(0xff1d1f3e),
+          cardColor: Color(0xff262845),
+          fontFamily: "Circular-Std",
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          accentColor: Colors.deepPurpleAccent,
+          primaryColor: Color(0xff1d1f3e),
+          primaryColorDark: Color(0xff1d1f3e),
+          backgroundColor: Color(0xff1d1f3e),
+          cardColor: Color(0xff262845),
+          fontFamily: "Circular-Std",
+        ),
+        home: HomeWidget(),
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        accentColor: Colors.deepPurpleAccent,
-        fontFamily: "Circular-Std",
-      ),
-      home: ChangeNotifierProvider<ItemSelector>(
-        create: (_) => ItemSelector(0),
-        child: HomeWidget(),
-      ),
+      providers: [
+        ChangeNotifierProvider<BottomNavProvider>(
+          create: (_) => BottomNavProvider(0),
+        ),
+      ],
     );
   }
 }
