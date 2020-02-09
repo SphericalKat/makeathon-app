@@ -37,11 +37,20 @@ class HomeWidget extends StatelessWidget {
     final fabVisibility = Provider.of<FabProvider>(context, listen: true);
 
     return DefaultTabController(
-      length: 3,
+      length: () {
+        switch (itemSelector.selectedItem) {
+          case 2:
+            return 4;
+          case 4:
+            return 3;
+          default:
+            return 0;
+        }
+      }(),
       child: Scaffold(
           floatingActionButton: fabVisibility.shouldShow
               ? FloatingActionButton.extended(
-                  backgroundColor: Colors.deepPurpleAccent,
+                  backgroundColor: Colors.greenAccent,
                   onPressed: () async {
                     const url = "https://selectmakeathon2020.hackerearth.com/";
                     if (await canLaunch(url)) {
@@ -50,8 +59,14 @@ class HomeWidget extends StatelessWidget {
                       throw "Could not launch $url";
                     }
                   },
-                  icon: Icon(MdiIcons.cashRegister),
-                  label: Text("Register"),
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                  label: Text(
+                    "Register",
+                    style: TextStyle(color: Colors.black),
+                  ),
                 )
               : null,
 //          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
@@ -103,20 +118,33 @@ class HomeWidget extends StatelessWidget {
   }
 
   Widget tabBar(int selectedItem) {
-    return selectedItem != 4
-        ? null
-        : TabBar(
+    switch (selectedItem) {
+      case 4:
+        {
+          return TabBar(
+            indicatorColor: Colors.greenAccent,
             tabs: [
-              Tab(
-                text: "About",
-              ),
-              Tab(
-                text: "Contact us",
-              ),
-              Tab(
-                text: "FAQ",
-              )
+              Tab(text: "About"),
+              Tab(text: "Contact us"),
+              Tab(text: "FAQ")
             ],
           );
+        }
+      case 2:
+        {
+          return TabBar(
+            indicatorColor: Colors.greenAccent,
+            tabs: [
+              Tab(text: "Supported by"),
+              Tab(text: "Associate Sponsors"),
+              Tab(text: "Outreach Partners"),
+              Tab(text: "Community Partners")
+            ],
+            isScrollable: true,
+          );
+        }
+      default:
+        return null;
+    }
   }
 }

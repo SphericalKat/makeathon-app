@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 class SponsorItem extends StatelessWidget {
   final Image image;
   final String name;
-  final String position;
 
-  SponsorItem(this.image, this.name, this.position);
+  SponsorItem(this.image, this.name);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 69, left: 69, top: 12),
+      padding: EdgeInsets.only(right: 42, left: 42, top: 12),
       child: Card(
         color: Color(0xff262845),
         child: Column(
@@ -20,16 +19,15 @@ class SponsorItem extends StatelessWidget {
               child: image,
             ),
             Padding(
-              padding: EdgeInsets.only(right: 10, left: 10),
-              child: Text(name, style: TextStyle(
-                  color: Colors.greenAccent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),),
+              padding: EdgeInsets.only(right: 10, left: 10, bottom: 12),
+              child: Text(
+                name,
+                style: TextStyle(
+                    color: Colors.greenAccent,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24),
+              ),
             ),
-            Padding(
-              padding: EdgeInsets.only(right: 10, left: 10, bottom: 16),
-              child: Text(position, style: TextStyle(fontSize: 16),),
-            )
           ],
         ),
       ),

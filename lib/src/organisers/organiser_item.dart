@@ -10,7 +10,7 @@ class OrganiserItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 69, left: 69, top: 12),
+      padding: EdgeInsets.only(right: 69, left: 69, top: 6, bottom: 6),
       child: Card(
         color: Color(0xff262845),
         child: Column(
