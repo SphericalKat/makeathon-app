@@ -120,14 +120,6 @@ class AgendaWidget extends StatelessWidget {
                 padding: EdgeInsets.only(right: 12),
                 child: Column(children: [
                   AgendaItem(
-                    "Breakfast",
-                    "8:00 AM",
-                    Icon(
-                      Icons.free_breakfast,
-                      color: Colors.greenAccent,
-                    ),
-                  ),
-                  AgendaItem(
                     "Milestone Check 1",
                     "11:30 AM",
                     Icon(
@@ -136,26 +128,10 @@ class AgendaWidget extends StatelessWidget {
                     ),
                   ),
                   AgendaItem(
-                    "Lunch",
-                    "1:00 PM",
-                    Icon(
-                      Icons.fastfood,
-                      color: Colors.redAccent,
-                    ),
-                  ),
-                  AgendaItem(
                     "Snacks",
                     "6:00",
                     Icon(
                       Icons.free_breakfast,
-                      color: Colors.blueAccent,
-                    ),
-                  ),
-                  AgendaItem(
-                    "Dinner",
-                    "8:00 PM",
-                    Icon(
-                      Icons.restaurant_menu,
                       color: Colors.yellowAccent,
                     ),
                   ),
@@ -200,47 +176,40 @@ class AgendaWidget extends StatelessWidget {
                     "8:00 AM",
                     Icon(
                       Icons.free_breakfast,
-                      color: Colors.greenAccent,
+                      color: Colors.greenAccent
+                      ,
                     ),
                   ),
                   AgendaItem(
-                    "Qualifier round",
-                    "9:00 AM",
+                    "Top 10 results declared",
+                    "10:00 AM",
                     Icon(
                       MdiIcons.scaleBalance,
                       color: Colors.blueAccent,
                     ),
                   ),
                   AgendaItem(
-                    "Lunch",
-                    "1:00 PM",
+                    "Final Pitch",
+                    "10:30 AM",
                     Icon(
-                      Icons.fastfood,
+                      MdiIcons.presentationPlay,
                       color: Colors.redAccent,
                     ),
                   ),
                   AgendaItem(
-                    "Final Presentation",
-                    "2:00 PM",
+                    "Results declared",
+                    "12:00 PM",
                     Icon(
-                      MdiIcons.presentationPlay,
-                      color: Colors.deepPurpleAccent,
+                      MdiIcons.scaleBalance,
+                      color: Colors.blueAccent,
                     ),
                   ),
                   AgendaItem(
-                    "Prize Distribution & Valedictory",
-                    "4:00 PM",
+                    "Closing ceremony",
+                    "1:00 PM",
                     Icon(
                       MdiIcons.trophyVariant,
                       color: Colors.tealAccent,
-                    ),
-                  ),
-                  AgendaItem(
-                    "Dinner",
-                    "8:30 PM",
-                    Icon(
-                      Icons.restaurant_menu,
-                      color: Colors.yellowAccent,
                     ),
                   ),
                 ]),

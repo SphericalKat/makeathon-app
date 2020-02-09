@@ -6,6 +6,7 @@ import 'package:makeathon/src/agenda/agenda_page.dart';
 import 'package:makeathon/src/info/about_widget.dart';
 import 'package:makeathon/src/organisers/organiser_page.dart';
 import 'package:makeathon/src/providers/fab_provider.dart';
+import 'package:makeathon/src/sponsors/sponsors_widget.dart';
 import 'package:makeathon/src/tracks/track_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
@@ -25,17 +26,7 @@ class HomeWidget extends StatelessWidget {
   final List<Widget> body = [
     AgendaWidget(),
     TrackWidget(),
-    Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Some fake info!"),
-          Text(
-            "The makeathon team says bye!",
-          ),
-        ],
-      ),
-    ),
+    SponsorPage(),
     OrganizerPage(),
     AboutWidget(),
   ];
@@ -50,8 +41,9 @@ class HomeWidget extends StatelessWidget {
       child: Scaffold(
           floatingActionButton: fabVisibility.shouldShow
               ? FloatingActionButton.extended(
+                  backgroundColor: Colors.deepPurpleAccent,
                   onPressed: () async {
-                    const url = "https://google.com";
+                    const url = "https://selectmakeathon2020.hackerearth.com/";
                     if (await canLaunch(url)) {
                       await launch(url);
                     } else {
@@ -109,38 +101,6 @@ class HomeWidget extends StatelessWidget {
           )),
     );
   }
-
-//  Widget bottomNav() {
-//    return BottomNavigationBar(
-//      selectedItemColor: Color(0xff69f0ae),
-//      backgroundColor: Color(0xff262845),
-//      type: BottomNavigationBarType.fixed,
-//      currentIndex: itemSelector.selectedItem,
-//      items: [
-//        BottomNavigationBarItem(
-//          icon: Icon(Icons.event),
-//          title: Text("Agenda"),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: Icon(MdiIcons.lightbulbOn),
-//          title: Text("Themes"),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: Icon(Icons.attach_money),
-//          title: Text("Sponsors"),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: Icon(MdiIcons.accountSupervisor),
-//          title: Text("Organisers"),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: Icon(Icons.info_outline),
-//          title: Text("Info"),
-//        ),
-//      ],
-//      onTap: (index) => itemSelector.setSelectedItem(index),
-//    );
-//  }
 
   Widget tabBar(int selectedItem) {
     return selectedItem != 4
