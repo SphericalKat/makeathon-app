@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:makeathon/src/providers/fab_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'about_item.dart';
 
 class AboutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ScrollController _hideButtonController = ScrollController();
+    final fabVisibility = Provider.of<FabProvider>(context, listen: true);
+    _hideButtonController.addListener(() {
+      if (_hideButtonController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        if (fabVisibility.shouldShow) {
+          fabVisibility.setShouldShow(false);
+        }
+      } else {
+        if (!fabVisibility.shouldShow) {
+          fabVisibility.setShouldShow(true);
+        }
+      }
+    });
     return TabBarView(
       children: [
         ListView(
+          controller: _hideButtonController,
           children: [
             Padding(
               padding: EdgeInsets.all(20),
@@ -31,12 +49,14 @@ class AboutWidget extends StatelessWidget {
           ],
         ),
         ListView(
+          controller: _hideButtonController,
           children: [
             AboutItem("Where can you find us?",
                 "If you have any questions regarding the Make-A-Thon that were not answered in the FAQ above, please get in touch with us through email - makeinvit@gmail.com or contact Aman Bagaria: 09097513482. We will reply as soon as possible.")
           ],
         ),
         ListView(
+          controller: _hideButtonController,
           children: [
             AboutItem("How does it work?",
                 "You will work in teams of 3-5 person to make anything that fits according to the problem statement you have chosen. A prompt will be released around two weeks before the event to guide all projects. We will provide everything you need in order to hack/make, from prototyping resources to food. On the last day every team will pitch at the finale of the Make-A-Thon to present their projects. "),
@@ -61,5 +81,4 @@ class AboutWidget extends StatelessWidget {
       ],
     );
   }
-
 }

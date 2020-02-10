@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:makeathon/src/providers/fab_provider.dart';
+import 'package:provider/provider.dart';
 import 'sponsor_item.dart';
 
 class SponsorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ScrollController _hideButtonController = ScrollController();
+    final fabVisibility = Provider.of<FabProvider>(context, listen: true);
+    _hideButtonController.addListener(() {
+      if (_hideButtonController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        if (fabVisibility.shouldShow) {
+          fabVisibility.setShouldShow(false);
+        }
+      } else {
+        if (!fabVisibility.shouldShow) {
+          fabVisibility.setShouldShow(true);
+        }
+      }
+    });
     return TabBarView(
       children: [
         Center(
           child: ListView(
+            controller: _hideButtonController,
             padding: EdgeInsets.only(bottom: 24),
             children: [
               SponsorItem(
@@ -19,6 +37,7 @@ class SponsorPage extends StatelessWidget {
         ),
         Center(
           child: ListView(
+            controller: _hideButtonController,
             padding: EdgeInsets.only(bottom: 24),
             children: [
               SponsorItem(
@@ -30,6 +49,7 @@ class SponsorPage extends StatelessWidget {
         ),
         Center(
           child: ListView(
+            controller: _hideButtonController,
             padding: EdgeInsets.only(bottom: 24),
             children: [
               SponsorItem(Image.asset("assets/images/sponsors/incubateind.png"),
@@ -39,6 +59,7 @@ class SponsorPage extends StatelessWidget {
         ),
         Center(
           child: ListView(
+            controller: _hideButtonController,
             padding: EdgeInsets.only(bottom: 24),
             children: [
               SponsorItem(Image.asset("assets/images/sponsors/balsamiq.png"),
@@ -53,11 +74,11 @@ class SponsorPage extends StatelessWidget {
                   "The Souled Store"),
               SponsorItem(
                   Image.asset("assets/images/sponsors/bugsee.png"), "Bugsee"),
+              SponsorItem(Image.asset("assets/images/sponsors/creativetim.png"),
+                  "Creative Tim"),
               SponsorItem(
-                  Image.asset("assets/images/sponsors/creativetim.png"), "Creative Tim"),
-              SponsorItem(
-                  Image.asset("assets/images/sponsors/challengerocket.png"), "ChallengeRocket.co,"),
-
+                  Image.asset("assets/images/sponsors/challengerocket.png"),
+                  "ChallengeRocket.com"),
             ],
           ),
         )
