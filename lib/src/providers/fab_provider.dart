@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 
 class FabProvider with ChangeNotifier {
   bool shouldShow;
+  int currentIndex;
 
-  FabProvider(this.shouldShow);
+  FabProvider(this.shouldShow, this.currentIndex);
+
+  void updateIndex(int index) {
+    currentIndex = index;
+    shouldShow = true;
+    notifyListeners();
+  }
 
   void setShouldShow(bool shouldShow) {
     this.shouldShow = shouldShow;
