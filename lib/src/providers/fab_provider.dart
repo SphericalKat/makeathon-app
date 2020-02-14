@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class FabProvider with ChangeNotifier {
   bool shouldShow;
+  GlobalKey<FormState> globalKey;
 
   FabProvider(this.shouldShow);
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:makeathon/src/info/email_form.dart';
 import 'package:makeathon/src/providers/fab_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -48,13 +49,7 @@ class AboutWidget extends StatelessWidget {
                 "School of Electrical Engineering (SELECT) has 104 faculty members who have done their UG and PG degrees from the top-notch universities. The School offers B.Tech (Electrical and Electronics Engineering), B.Tech (Electronics and Instrumentation Engineering), FIST sponsored M.Tech programme in Power and Energy and M. Tech programme in Control and Automation, M.Tech. by Research and Ph.D. in Engineering. B.Tech (Electrical and Electronics Engineering) and B.Tech (Electronics and Instrumentation Engineering), is accredited by the Engineering Accreditation Commission of ABET. All UG & PG programmes of the school are accredited by the Institution of Engineering and Technology (IET), U.K. The placement record of the School has always been impressive. Almost 100% of the students get job from the campus placement and many of them are getting it in core companies every year. The School has state-of-the art laboratories in almost all the areas of Electrical, Electronics and Instrumentation Engineering. Every year, students get scholarships to do their final year projects abroad under the Semester Abroad Program (SAP). Danfoss India, Schneider Electric, Q-Max, National Instruments and Fluke Test & Callibration have established Centre of Excellence for students R&D activities under the guidance of faculty members and Industry experts. The School has signed MoUs with many foreign Universities, research organizations and Industries from where students get benefits for their R&D Work / Projects from the MoUs. ")
           ],
         ),
-        ListView(
-          controller: _hideButtonController,
-          children: [
-            AboutItem("Where can you find us?",
-                "If you have any questions regarding the Make-A-Thon that were not answered in the FAQ above, please get in touch with us through email - makeinvit@gmail.com or contact Aman Bagaria: 09097513482. We will reply as soon as possible.")
-          ],
-        ),
+        EmailForm(),
         ListView(
           controller: _hideButtonController,
           children: [
