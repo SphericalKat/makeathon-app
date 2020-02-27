@@ -21,7 +21,7 @@ class HomeWidget extends StatelessWidget {
     "Agenda",
     "Problem statements",
     "Sponsors",
-    "Organising Committee",
+    "Judges and Mentors",
     "Info"
   ];
 
@@ -52,7 +52,7 @@ class HomeWidget extends StatelessWidget {
       child: Builder(
         builder: (BuildContext context) {
           return Scaffold(
-              floatingActionButton: _BuildFab(),
+              floatingActionButton: _BuildFab(itemSelector.selectedItem),
               backgroundColor: Color(0xff1d1f3e),
               appBar: AppBar(
                 bottom: tabBar(itemSelector.selectedItem),
@@ -90,7 +90,10 @@ class HomeWidget extends StatelessWidget {
                   BubbleBottomBarItem(
                       backgroundColor: Colors.red,
                       icon: Icon(MdiIcons.accountSupervisor),
-                      title: Text("Organisers")),
+                      title: Text(
+                        "Judging",
+                        overflow: TextOverflow.fade,
+                      )),
                   BubbleBottomBarItem(
                       backgroundColor: Colors.deepPurpleAccent,
                       icon: Icon(Icons.info_outline),
@@ -135,14 +138,23 @@ class HomeWidget extends StatelessWidget {
 }
 
 class _BuildFab extends StatelessWidget {
+  final int index;
+
+  _BuildFab(this.index);
+
   @override
   Widget build(BuildContext context) {
     final fabProvider = Provider.of<FabProvider>(context, listen: true);
     final formProvider = Provider.of<FormProvider>(context, listen: true);
     DefaultTabController.of(context).addListener(() {
-      final index = DefaultTabController.of(context).index;
-      if (fabProvider.currentIndex != index) fabProvider.updateIndex(index);
+      if (index == 4) {
+        final i = DefaultTabController.of(context).index;
+        if (fabProvider.currentIndex != i) fabProvider.updateIndex(i);
+      }
     });
+
+
+
     switch (fabProvider.currentIndex) {
       case 1:
         return FloatingActionButton.extended(
