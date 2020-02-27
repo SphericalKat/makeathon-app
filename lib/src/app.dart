@@ -36,7 +36,7 @@ class App extends StatelessWidget {
           create: (_) => BottomNavProvider(0),
         ),
         ChangeNotifierProvider<FabProvider>(
-          create: (_) => FabProvider(true),
+          create: (_) => FabProvider(true, 0),
         )
       ],
     );

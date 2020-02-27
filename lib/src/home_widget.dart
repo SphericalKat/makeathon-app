@@ -34,7 +34,6 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itemSelector = Provider.of<BottomNavProvider>(context, listen: true);
-    final fabVisibility = Provider.of<FabProvider>(context, listen: true);
 
     return DefaultTabController(
       initialIndex: 0,
@@ -51,77 +50,7 @@ class HomeWidget extends StatelessWidget {
       child: Builder(
         builder: (BuildContext context) {
           return Scaffold(
-              floatingActionButton: fabVisibility.shouldShow
-                  ? () {
-                if (itemSelector.selectedItem == 4) {
-                  if (DefaultTabController.of(context).index == 1) {
-                    return FloatingActionButton.extended(
-                      backgroundColor: Colors.yellowAccent,
-                      onPressed: () async {
-                        const url =
-                            "https://selectmakeathon2020.hackerearth.com/";
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        } else {
-                          throw "Could not launch $url";
-                        }
-                      },
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        "Submit",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    );
-                  } else {
-                    return FloatingActionButton.extended(
-                      backgroundColor: Colors.greenAccent,
-                      onPressed: () async {
-                        const url =
-                            "https://selectmakeathon2020.hackerearth.com/";
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        } else {
-                          throw "Could not launch $url";
-                        }
-                      },
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        "Register",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    );
-                  }
-                } else {
-                  return FloatingActionButton.extended(
-                    backgroundColor: Colors.greenAccent,
-                    onPressed: () async {
-                      const url =
-                          "https://selectmakeathon2020.hackerearth.com/";
-                      if (await canLaunch(url)) {
-                        await launch(url);
-                      } else {
-                        throw "Could not launch $url";
-                      }
-                    },
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black,
-                    ),
-                    label: Text(
-                      "Register",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  );
-                }
-              }()
-                  : null,
-//          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+              floatingActionButton: _BuildFab(),
               backgroundColor: Color(0xff1d1f3e),
               appBar: AppBar(
                 bottom: tabBar(itemSelector.selectedItem),
@@ -199,6 +128,48 @@ class HomeWidget extends StatelessWidget {
         }
       default:
         return null;
+    }
+  }
+}
+
+class _BuildFab extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final fabProvider = Provider.of<FabProvider>(context, listen: true);
+    DefaultTabController.of(context).addListener(() {
+      final index = DefaultTabController.of(context).index;
+      if (fabProvider.currentIndex != index) fabProvider.updateIndex(index);
+    });
+    switch (fabProvider.currentIndex) {
+      case 1:
+        return FloatingActionButton.extended(
+          backgroundColor: Colors.greenAccent,
+          onPressed: null,
+          label: Text("Submit", style: TextStyle(color: Colors.black)),
+          icon: Icon(MdiIcons.mail, color: Colors.black),
+        );
+      default:
+        return fabProvider.shouldShow
+            ? FloatingActionButton.extended(
+                backgroundColor: Colors.greenAccent,
+                onPressed: () async {
+                  const url = "https://selectmakeathon2020.hackerearth.com/";
+                  if (await canLaunch(url)) {
+                    await launch(url);
+                  } else {
+                    throw "Could not launch $url";
+                  }
+                },
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black,
+                ),
+                label: Text(
+                  "Register",
+                  style: TextStyle(color: Colors.black),
+                ),
+              )
+            : SizedBox();
     }
   }
 }
