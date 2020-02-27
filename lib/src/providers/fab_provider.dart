@@ -3,7 +3,6 @@
 class FabProvider with ChangeNotifier {
   bool shouldShow;
   int currentIndex;
-  GlobalKey<FormState> globalKey;
 
   FabProvider(this.shouldShow, this.currentIndex);
 

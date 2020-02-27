@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:makeathon/src/providers/fab_provider.dart';
+import 'package:makeathon/src/providers/form_provider.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:string_validator/string_validator.dart';
@@ -16,10 +16,11 @@ class EmailFormState extends State<EmailForm> {
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    final fabVisibility = Provider.of<FabProvider>(context, listen: true);
-    fabVisibility.globalKey = _formKey;
+    final formProvider = Provider.of<FormProvider>(context, listen: false);
+    formProvider.globalKey = _formKey;
     return Form(
       key: _formKey,
       child: ListView(
@@ -35,6 +36,9 @@ class EmailFormState extends State<EmailForm> {
                   return "Name must contain only text";
                 }
                 return null;
+              },
+              onSaved: (String name) {
+                formProvider.setName(name);
               },
               textCapitalization: TextCapitalization.words,
               decoration: const InputDecoration(
@@ -53,6 +57,9 @@ class EmailFormState extends State<EmailForm> {
                 }
                 return null;
               },
+              onSaved: (String subject) {
+                formProvider.setSubject(subject);
+              },
               textCapitalization: TextCapitalization.sentences,
               decoration: const InputDecoration(
                   icon: Icon(MdiIcons.text),
@@ -66,9 +73,12 @@ class EmailFormState extends State<EmailForm> {
             child: TextFormField(
               validator: (value) {
                 if (value.isEmpty) {
-                  return "Subject must not be empty";
+                  return "Body must not be empty";
                 }
                 return null;
+              },
+              onSaved: (String body) {
+                formProvider.setBody(body);
               },
               keyboardType: TextInputType.multiline,
               maxLines: 40,

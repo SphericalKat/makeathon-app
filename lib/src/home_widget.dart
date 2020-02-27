@@ -2,10 +2,12 @@ import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:makeathon/src/agenda/agenda_page.dart';
 import 'package:makeathon/src/info/about_widget.dart';
 import 'package:makeathon/src/organisers/organiser_page.dart';
 import 'package:makeathon/src/providers/fab_provider.dart';
+import 'package:makeathon/src/providers/form_provider.dart';
 import 'package:makeathon/src/sponsors/sponsors_widget.dart';
 import 'package:makeathon/src/tracks/track_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -136,6 +138,7 @@ class _BuildFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fabProvider = Provider.of<FabProvider>(context, listen: true);
+    final formProvider = Provider.of<FormProvider>(context, listen: true);
     DefaultTabController.of(context).addListener(() {
       final index = DefaultTabController.of(context).index;
       if (fabProvider.currentIndex != index) fabProvider.updateIndex(index);
@@ -144,7 +147,19 @@ class _BuildFab extends StatelessWidget {
       case 1:
         return FloatingActionButton.extended(
           backgroundColor: Colors.greenAccent,
-          onPressed: null,
+          onPressed: () async {
+            if (formProvider.globalKey.currentState.validate()) {
+              formProvider.globalKey.currentState.save();
+              final Email email = Email(
+                  body: formProvider.body + "\n\n Regards, ${formProvider.name}",
+                  subject: formProvider.subject,
+                  recipients: ["makeinvit@gmail.com"],
+                  isHTML: false
+              );
+
+              await FlutterEmailSender.send(email);
+            }
+          },
           label: Text("Submit", style: TextStyle(color: Colors.black)),
           icon: Icon(MdiIcons.mail, color: Colors.black),
         );
