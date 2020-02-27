@@ -18,8 +18,13 @@ class TrackItem extends StatelessWidget {
           padding: EdgeInsets.only(top: 8, bottom: 8),
           child: ListTile(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => ProblemStatement(title, routeItems)));
+              if (routeItems.length != 0) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ProblemStatement(title, routeItems)));
+              }
             },
             leading: image,
             title: Text(

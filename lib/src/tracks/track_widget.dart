@@ -237,7 +237,9 @@ class TrackWidget extends StatelessWidget {
               "Smart Agriculture",
               "For sustainable outcomes, only the smart application of tech and scientific advances can boost rural growth and agricultural productivity.",
               Image.asset("assets/images/smart_agro_track.png"), [
-                AboutItem("AG-001 - Ensure that stubble is not affecting our environment", "Stubble burning is intentionally setting fire to the straw stubble that remains after grains, like paddy, wheat, etc., have been harvested. The burning of stubble, contrasted with alternatives such as plowing the stubble back into the ground or collecting it for industrial uses, has a number of consequences and effects on the environment, which majorly include pollution and loss of nutrients. How might we ensure that stubble is not affecting our environment anymore?")
+            AboutItem(
+                "AG-001 - Ensure that stubble is not affecting our environment",
+                "Stubble burning is intentionally setting fire to the straw stubble that remains after grains, like paddy, wheat, etc., have been harvested. The burning of stubble, contrasted with alternatives such as plowing the stubble back into the ground or collecting it for industrial uses, has a number of consequences and effects on the environment, which majorly include pollution and loss of nutrients. How might we ensure that stubble is not affecting our environment anymore?")
           ]),
           TrackItem(
               "Women and Child safety",
@@ -246,23 +248,153 @@ class TrackWidget extends StatelessWidget {
           TrackItem(
               "Autonomous Vehicles",
               "Widespread use of autonomous vehicles could eliminate 90% of all auto accidents in the United States, prevent up to US\$190 billion in damages and health-costs annually and save thousands of lives.",
-              Image.asset("assets/images/auto_vehicles_track.png"), []),
+              Image.asset("assets/images/auto_vehicles_track.png"), [
+            AboutItem(
+              "EV-001 - Building a real-time data analysis tool for Monitoring Vehicle Parameters",
+              "To build a data analysis and vehicle health prediction tool based on the riding pattern of the rider, analysing the riding pattern of the vehicle user and suggesting the user the best riding patterns to optimize the battery health and obtain good range) Machine learning can also be integrated here",
+            ),
+            AboutItem(
+              "EV-002 - To build a battery management system to monitor the battery health, and protect the battery in case of any serious failure(e.g. Short-circuit, battery over-current, battery over-temperature etc.",
+              "To build a battery management system to monitor the battery health, and protect the battery in case of any serious failure(e.g. Short-circuit, battery over-current, battery over-temperature etc..To build a system to inform the user of the battery's current status that includes various factors that concern the overall health of the battery and hence the vehicle. The system should also be able to protect the battery from problems that might occur during daily use. User involvement should not be required while taking care of these issues. Try incorporating intelligence to predict when the next problem would occur.",
+            ),
+            AboutItem(
+              "EV-003 - To predict the battery health based on current charge and discharge cycles and current use of the vehicle user.",
+              "To build a system which utilises the data from the previous charge and discharge cycles of the EV and inform the user of when the next charge cycle will be required according to the various parameters of the battery.",
+            ),
+            AboutItem(
+              "EV-004",
+              "The current Electric Vehicle market lacks the right infrastructure to help encourage people to choose EV over traditional vehicles. One major problem relating to EVs is the lack of trusted parties that provide charging services.There has to be trust between charging service providers, property owners of charging stations and vehicle owners. Use Blockchain to provide access to data to all the involved parties and make sure that the service providers are not overcharging vehicle owners and at the same time make sure that the property owners aren’t being underpaid.",
+            ),
+            AboutItem(
+              "EV-005 - Development of ultra-fast flash charging",
+              "Currently, a major problem for the EV industry in India is the amount of time taken for the vehicle to charge versus the range of the vehicle. The owner would prefer a quick refill at the petrol pump instead of an 8-hour wait for the battery to fully charge. Develop a system to reduce this wait time and make EV’s more enticing for people.",
+            ),
+          ]),
           TrackItem(
               "Energy Management and Smart Grid",
               "It is up to us to find ways to simultaneously preserve the environment and drive development to ensure that future generations have a better world to live in.",
-              Image.asset("assets/images/smart_grid_track.png"), []),
+              Image.asset("assets/images/smart_grid_track.png"), [
+            AboutItem(
+              "EM-001",
+              "Energy-efficient control Strategies on industrial drives",
+            ),
+            AboutItem(
+              "EM-002",
+              "Energy conversion and conditioning technologies in Industrial Drives",
+            ),
+            AboutItem(
+              "EM-003",
+              "Clean Energy using Hybrid Renewable Systems",
+            ),
+            AboutItem(
+              "EM-004",
+              "Energy Harvesting from pedestrian movement (Like pavengen tiles harvest kinetic energy from pedestrian traffic)",
+            ),
+            AboutItem(
+              "EM-005 - To address critical loads",
+              "Redundant Power Drive for Critical Process Loads",
+            ),
+            AboutItem(
+              "EM-006",
+              "AI-based Detection, Identification and Estimation methods of Drive Fault",
+            ),
+          ]),
           TrackItem(
               "Blockchain for Sustainable Management",
               "Blockchain technologies may have a profound impact on development-oriented investment, not only by revolutionizing global payment systems but also through improvements to access to finance, supply chain management, digital identities or land registries.",
-              Image.asset("assets/images/blockchain_track.png"), []),
+              Image.asset("assets/images/blockchain_track.png"), [
+            AboutItem(
+              "BC001",
+              "Design a P2P solar trading platform which will eliminate the need for DISCOMs and help trade surplus electricity between a network of participants using the existing grid infrastructure.Consumers have turned to Solar energy to fulfil their energy needs and the surplus power generated can be monetized by selling it to other participants (consumers) in the network. The ability to generate and sell power will allow consumers to become prosumers. Block chain can be used to store meter data and account for energy usage.",
+            ),
+            AboutItem(
+              "BC002",
+              "The current Electric Vehicle market lacks the right infrastructure to help encourage people to choose EV over traditional vehicles. One major problem relating to EVs is the lack of trusted parties that provide charging services.There has to be trust between charging service providers, property owners of charging stations and vehicle owners. Use Blockchain to provide access to data to all the involved parties and make sure that the service providers are not overcharging vehicle owners and at the same time make sure that the property owners aren’t being underpaid.",
+            ),
+            AboutItem(
+              "BC003",
+              "Optimization of workflow in an outpatient department and an efficient handover system for individual doctors to follow up on patient records",
+            ),
+            AboutItem(
+              "BC004",
+              "An incentivized data system where patients remain a key stakeholder in distribution of data, thus enabling the democratization of personal health data",
+            ),
+            AboutItem(
+              "BC005",
+              "An efficient blockchain system for tele-consultation in remote access healthcare",
+            ),
+            AboutItem(
+              "BC006",
+              "An efficient blockchain system for tele-consultation in remote access healthcare",
+            ),
+            AboutItem(
+              "BC007",
+              "Innovative blockchain platform that is device agnostic in nature ~ effective to work across different medical devices",
+            ),
+            AboutItem(
+              "BC008",
+              "Block chain enabled smart contracts for enhancing distributor to consumer transaction- Case study",
+            ),
+            AboutItem(
+              "BC009",
+              "Demonstrated secured transfer of money internationally using block chain for fee collection - consultation and knowledge sharing.",
+            ),
+            AboutItem(
+              "BC010",
+              "Reliable and safe trade for Electricity and lower electricity bills for industry using Block chain.",
+            ),
+            AboutItem(
+              "BC011",
+              "Block chain assisted authentication of prescription and fake medicine verification.",
+            ),
+            AboutItem(
+              "BC012",
+              "Block Chain for Tourism Promotion.",
+            ),
+            AboutItem(
+              "BC013",
+              "Block Chain for Agricultural product distribution and money collection",
+            ),
+            AboutItem(
+              "BC014",
+              "Block Chain for Driverless car and secure parking and fee collection",
+            ),
+          ]),
           TrackItem(
               "Cyber security",
               "With each passing day, new cyber attacks are being discovered. These new cyber attacks and threats require innovative ways to tackle them and protect data.",
-              Image.asset("assets/images/cybersec_track.png"), []),
+              Image.asset("assets/images/cybersec_track.png"), [
+            AboutItem(
+              "SS-001",
+              "Develop an Efficient Antiphishing method to secure eConsume.",
+            ),
+            AboutItem(
+              "SS-002",
+              "Demonstrate Security Vulnerabilities in Raspberry Pi weak link for IoT Application.",
+            ),
+            AboutItem(
+              "SS-003",
+              "Emerging Issues in Vehicular Cyber Security: Case study",
+            ),
+            AboutItem(
+              "SS-004",
+              "Cellular V2X Transmission for Connected and Autonomous Vehicle- Challenges and Issues.",
+            ),
+            AboutItem(
+              "SS-005",
+              "Data Driven extraction of vehicle states from CAN BUS Traffic for cyber Protection and safety",
+            ),
+            AboutItem(
+              "SS-006",
+              "Tree based Attack- Defense model for Risk Assessment in Multi-UAV Networks.",
+            ),
+          ]),
           TrackItem(
               "Open Innovation",
               "The field of open innovation is where ideas blossom into reality and possibilities are endless. Open innovation is an increasingly important tool, across various fields and industries. Bring together technology and ideas.",
-              Image.asset("assets/images/open_track.png"), []),
+              Image.asset("assets/images/open_track.png"), [
+                
+          ]),
         ],
       ),
     );
