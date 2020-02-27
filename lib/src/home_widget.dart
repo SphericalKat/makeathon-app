@@ -151,11 +151,11 @@ class _BuildFab extends StatelessWidget {
             if (formProvider.globalKey.currentState.validate()) {
               formProvider.globalKey.currentState.save();
               final Email email = Email(
-                  body: formProvider.body + "\n\n Regards, ${formProvider.name}",
+                  body:
+                      formProvider.body + "\n\n Regards, ${formProvider.name}",
                   subject: formProvider.subject,
                   recipients: ["makeinvit@gmail.com"],
-                  isHTML: false
-              );
+                  isHTML: false);
 
               await FlutterEmailSender.send(email);
             }
@@ -164,27 +164,29 @@ class _BuildFab extends StatelessWidget {
           icon: Icon(MdiIcons.mail, color: Colors.black),
         );
       default:
-        return fabProvider.shouldShow
-            ? FloatingActionButton.extended(
-                backgroundColor: Colors.greenAccent,
-                onPressed: () async {
-                  const url = "https://selectmakeathon2020.hackerearth.com/";
-                  if (await canLaunch(url)) {
-                    await launch(url);
-                  } else {
-                    throw "Could not launch $url";
-                  }
-                },
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.black,
-                ),
-                label: Text(
-                  "Register",
-                  style: TextStyle(color: Colors.black),
-                ),
-              )
-            : SizedBox();
+        return AnimatedOpacity(
+          opacity: fabProvider.shouldShow ? 1.0 : 0.0,
+          duration: Duration(milliseconds: 200),
+          child: FloatingActionButton.extended(
+            backgroundColor: Colors.greenAccent,
+            onPressed: () async {
+              const url = "https://selectmakeathon2020.hackerearth.com/";
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw "Could not launch $url";
+              }
+            },
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.black,
+            ),
+            label: Text(
+              "Register",
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+        );
     }
   }
 }

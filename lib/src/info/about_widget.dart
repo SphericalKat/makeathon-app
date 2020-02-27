@@ -68,7 +68,7 @@ class AboutWidget extends StatelessWidget {
             AboutItem("What do I build?",
                 "You can build anything you and your team would like! We will provide a prompt, components to help accelerate development and mentorship from academicians and industrialists, but everything else is totally up to you and your team."),
             AboutItem("How much does this cost?",
-                "This event is completely free for VITians and at a registration fee of ₹500* for Non-VITians. It includes food and any necessary materials you will need to make with!"),
+                "This event is completely free for everyone. If a non-VITian requires accomodation, it will be provided by the organizers. It includes food and any necessary materials you will need to make with!"),
             AboutItem("How do I benefit?",
                 "Exposure, internship opportunities, interaction with industry experts and vendors and prize money worth 1.5 Lacs.\nTop 10 teams will be given Startup grant of 1 Lakh rupees by VIT-TBI.\nSpecial prizes in healthcare track.")
           ],
