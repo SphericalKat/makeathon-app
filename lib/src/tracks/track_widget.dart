@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:makeathon/src/info/about_item.dart';
 import 'package:makeathon/src/providers/fab_provider.dart';
-import 'package:makeathon/src/tracks/routes/route_item.dart';
 import 'package:makeathon/src/tracks/track_item.dart';
 import 'package:provider/provider.dart';
 
